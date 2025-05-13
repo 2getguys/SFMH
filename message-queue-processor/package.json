@@ -1,0 +1,26 @@
+{
+  "name": "message-queue-processor",
+  "version": "1.0.0",
+  "description": "Processes message queue from Supabase, handles media with OpenAI, and sends to n8n.",
+  "main": "processor.js",
+  "scripts": {
+    "start": "node processor.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "instagram",
+    "n8n",
+    "supabase",
+    "openai",
+    "queue",
+    "processor"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "axios": "^1.0.0",
+    "dotenv": "^16.0.0",
+    "openai": "^4.0.0" 
+  }
+}
