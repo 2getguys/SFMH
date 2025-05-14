@@ -6,7 +6,10 @@
 
 import { Request, Response } from 'express';
 import { INSTAGRAM_VERIFY_TOKEN } from '../config/env';
-import { legolasAgent } from '../agents/main-agent/LegolasAgent';
+import LegolasAgent from '../agents/main-agent/LegolasAgent';
+
+// Створюємо єдиний екземпляр LegolasAgent для обробки всіх повідомлень
+const legolasAgentInstance = new LegolasAgent();
 
 export const handleInstagramWebhook = (req: Request, res: Response) => {
     console.log('Instagram webhook received (POST request). Processing...');
@@ -35,7 +38,7 @@ export const handleInstagramWebhook = (req: Request, res: Response) => {
                     console.log(`  Message ID: ${messageId}`);
 
                     // Передаємо senderId та messageText головному агенту для обробки
-                    legolasAgent.handleMessage(senderId, messageText).catch(error => {
+                    legolasAgentInstance.handleMessage(senderId, messageText).catch(error => {
                         console.error('Помилка під час обробки повідомлення Леголас Агентом:', error);
                         // Тут можна додати логіку для надсилання повідомлення про помилку користувачеві або розробнику
                     });

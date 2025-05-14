@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "instagram-dm-agent"
+		},
+		{
+			"path": "instagram-webhook-receiver"
+		},
+		{
+			"path": "message-queue-processor"
+		}
+	],
+	"settings": {}
+}
